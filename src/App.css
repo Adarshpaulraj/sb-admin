@@ -1,0 +1,15 @@
+ .nested{
+  display: flex;
+  list-style: none;
+  
+ }
+ .nested li{
+  border: 2px solid black;
+  padding: 20px;
+  margin-top: 40px;
+  
+ }
+ .nested li.active{
+  background-color: aqua;
+  color: black;
+ }
