@@ -19,10 +19,16 @@ function UseReducer() {
         switch(action.type){
            case 'increment':return{...state,count:state.count+1 }
            case 'decrement':return{...state,count:state.count-1  }
+           case 'delete':{
+            let newarray=[...state.products]
+            newarray.splice(action.id,1)
+            return{...state,products:newarray}
+           }
         }
 
     }
     let [state,dispatch]=useReducer(reducer,data)
+    
   return <>
         <div className="container-fluid">
         <div className="d-sm-flex align-items-center justify-content-between mb-4">
@@ -49,7 +55,7 @@ function UseReducer() {
                         <td>
                         <i class="fa-solid fa-pen-to-square"></i>
                         &nbsp;
-                        <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-trash" onClick={()=>dispatch({type:'delete',id:i})}></i>
                         </td>
                     </tr>
                   })

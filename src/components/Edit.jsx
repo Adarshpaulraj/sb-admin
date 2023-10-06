@@ -1,12 +1,14 @@
- import React ,{useEffect,useState}from 'react'
+ import React ,{useEffect,useState,useContext}from 'react'
  import { useParams } from 'react-router-dom'
  import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form"
 import { useNavigate } from "react-router-dom";
+import { UserDataContext } from './context/UserContext';
 
 
   
- function Edit({data,setData}) {
+ function Edit() {
+  let {data,setData}=useContext(UserDataContext)
   const params=useParams()
   let [name,setName]=useState("")
   let [age,setAge]=useState("")

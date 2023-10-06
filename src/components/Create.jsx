@@ -3,9 +3,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Formik } from 'formik'
+import { useContext } from "react";
+import { UserDataContext } from "./context/UserContext";
 import * as Yup from "yup";
-function Create({ data, setData }) {
+function Create() {
   let navigate = useNavigate();
+  let {data,setData}=useContext(UserDataContext)
   const UserSchema = Yup.object().shape({
     name: Yup.string()
       .required("*required")

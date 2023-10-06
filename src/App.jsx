@@ -3,34 +3,25 @@
   import {BrowserRouter,Routes,Route} from"react-router-dom"
   import Create from "./components/Create"
   import Edit from "./components/Edit"
-import { useState } from "react"
-import { Navigate } from "react-router-dom"
+ import { Navigate } from "react-router-dom"
 import NestedComponents from "./components/NestedComponents"
 import Mobile from "./components/NestedComponents/mobile"
 import Brand from "./components/NestedComponents/brand"
 import Rate from "./components/NestedComponents/Rate"
  import UseRef from "./components/hooks/UseRef"
  import UseReducer from "./components/hooks/UseReducer"
-   function App() {
-    let [data,setData]= useState([
-    {
-      name:"Adarsh",
-      age:"23"
-    },
-    {
-      name:"Janu",
-      age:"19"
-    }
+ import UserContext from "./components/context/UserContext"
+ import DashboardContext from "./components/context/DashboardContext"
+    function App() {
 
-    ])
   return  <>
   <div id="wrapper">
     <BrowserRouter>
     <Sidebar/>
      <Routes>
-      <Route path="/Dasboard" element={<Dasboard data={data} setData={setData}/>}/>
-      <Route path="/Edit/:id" element={<Edit data={data} setData={setData}/>}/>
-      <Route path="/Create" element={<Create  data={data} setData={setData}/>}/>
+      <Route path="/Dasboard" element={<UserContext><DashboardContext><Dasboard/></DashboardContext></UserContext>}/>
+      <Route path="/Edit/:id" element={<UserContext><Edit/></UserContext>}/>
+      <Route path="/Create" element={<UserContext><Create/></UserContext>}/>
       
       <Route path="/NestedComponents" element={<NestedComponents/>}>
         <Route path="mobile" element={<Mobile/>}/>

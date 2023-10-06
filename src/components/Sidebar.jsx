@@ -21,7 +21,7 @@ function Sidebar() {
     <div className="nav-link">
         <Link to='./Dasboard'>
         <i className="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span>
+        <span style={{color:'white'}}>Dashboard</span>
         </Link>
         </div>
       
